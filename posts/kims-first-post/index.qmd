@@ -1,0 +1,33 @@
+---
+title: "Kim's first post"
+author: "Kim Cressman"
+date: "2025-04-15"
+categories: [news]
+toc: true
+toc-float: true
+---
+
+This blog is meant to allow us to share what we've been learning through our coding, visualization, and analysis. Currently I am learning about Quarto blogs, so this is a very boring post - I'll be playing with formatting.
+
+# Header 1.1
+
+I assume tables of contents and headers will work the way they usually do with html files?
+
+## Header 2.1
+
+Just some throwaway text.
+
+## Header 2.2
+
+Another one.
+
+# Header 1.2
+
+Some code and structure:
+
+```{r}
+#| code-fold: true
+
+# this is folded code
+print(paste0("The sum of 1 + 1 is: ", 1 + 1))
+```

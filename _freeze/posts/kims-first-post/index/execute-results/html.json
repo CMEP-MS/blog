@@ -1,0 +1,15 @@
+{
+  "hash": "ea6d85a982d5dd31188f0f39b88358a8",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Kim's first post\"\nauthor: \"Kim Cressman\"\ndate: \"2025-04-15\"\ncategories: [news]\ntoc: true\ntoc-float: true\n---\n\n\n\n\n\nThis blog is meant to allow us to share what we've been learning through our coding, visualization, and analysis. Currently I am learning about Quarto blogs, so this is a very boring post - I'll be playing with formatting.\n\n# Header 1.1\n\nI assume tables of contents and headers will work the way they usually do with html files?\n\n## Header 2.1\n\nJust some throwaway text.\n\n## Header 2.2\n\nAnother one.\n\n# Header 1.2\n\nSome code and structure:\n\n\n\n\n\n::: {.cell}\n\n```{.r .cell-code  code-fold=\"true\"}\n# this is folded code\nprint(paste0(\"The sum of 1 + 1 is: \", 1 + 1))\n```\n\n::: {.cell-output .cell-output-stdout}\n\n```\n[1] \"The sum of 1 + 1 is: 2\"\n```\n\n\n:::\n:::\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

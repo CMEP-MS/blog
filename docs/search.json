@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "CMEP coding blog",
     "section": "",
-    "text": "Post With Code\n\n\n\n\n\n\nnews\n\n\ncode\n\n\nanalysis\n\n\n\n\n\n\n\n\n\nApr 15, 2025\n\n\nHarlow Malloc\n\n\n\n\n\n\n\n\n\n\n\n\nWelcome To My Blog\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\nApr 12, 2025\n\n\nTristan O’Malley\n\n\n\n\n\n\nNo matching items"
+    "text": "Kim’s first post\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\nApr 15, 2025\n\n\nKim Cressman\n\n\n\n\n\n\n\n\n\n\n\n\nPost With Code\n\n\n\n\n\n\nnews\n\n\ncode\n\n\nanalysis\n\n\n\n\n\n\n\n\n\nApr 15, 2025\n\n\nHarlow Malloc\n\n\n\n\n\n\n\n\n\n\n\n\nWelcome To My Blog\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\nApr 12, 2025\n\n\nTristan O’Malley\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/post-with-code/index.html",
@@ -26,5 +26,26 @@
     "title": "Welcome To My Blog",
     "section": "",
     "text": "This is the first post in a Quarto blog. Welcome!\n\nSince this post doesn’t specify an explicit image, the first image in the post will be used in the listing page of posts."
+  },
+  {
+    "objectID": "posts/kims-first-post/index.html",
+    "href": "posts/kims-first-post/index.html",
+    "title": "Kim’s first post",
+    "section": "",
+    "text": "This blog is meant to allow us to share what we’ve been learning through our coding, visualization, and analysis. Currently I am learning about Quarto blogs, so this is a very boring post - I’ll be playing with formatting."
+  },
+  {
+    "objectID": "posts/kims-first-post/index.html#header-2.1",
+    "href": "posts/kims-first-post/index.html#header-2.1",
+    "title": "Kim’s first post",
+    "section": "Header 2.1",
+    "text": "Header 2.1\nJust some throwaway text."
+  },
+  {
+    "objectID": "posts/kims-first-post/index.html#header-2.2",
+    "href": "posts/kims-first-post/index.html#header-2.2",
+    "title": "Kim’s first post",
+    "section": "Header 2.2",
+    "text": "Header 2.2\nAnother one."
   }
 ]
