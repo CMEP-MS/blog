@@ -3,14 +3,13 @@ project:
   output-dir: docs
 
 website:
-  title: "blog"
+  title: "CMEP coding blog"
   navbar:
     right:
       - about.qmd
       - icon: github
-        href: https://github.com/
-      - icon: twitter
-        href: https://twitter.com
+        href: https://github.com/cmep-ms
+
 format:
   html:
     theme: cosmo

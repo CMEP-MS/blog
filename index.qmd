@@ -1,5 +1,5 @@
 ---
-title: "blog"
+title: "CMEP coding blog"
 listing:
   contents: posts
   sort: "date desc"
