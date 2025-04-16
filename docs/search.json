@@ -18,7 +18,7 @@
     "href": "about.html",
     "title": "About",
     "section": "",
-    "text": "About this blog"
+    "text": "This blog is a place where personnel with Mississippi State University’s Coastal & Marine Extension Program (CMEP) can share what we learn as we code. CMEP is housed at the Coastal Research and Extension Center in Biloxi, MS."
   },
   {
     "objectID": "posts/welcome/index.html",
@@ -117,5 +117,12 @@
     "title": "Mapmaking",
     "section": "Monthly Normals",
     "text": "Monthly Normals\nI didn’t mess around too much before landing on a couple options that worked, so I’ll jump straight to those here.\n\nplot()\nI gave up on this function pretty quickly because an AI tool told me the zlim line should make the color scale the same in all facets, and it did NOT. I gave up before trying to add the MSEP boundary.\n\nglobal_min &lt;- min(values(monthly_ms_in), na.rm = TRUE)\nglobal_max &lt;- max(values(monthly_ms_in), na.rm = TRUE)\n\nplot(monthly_ms_in,\n     col = myPal,\n     zlim = c(global_min, global_max))\n\n\n\n\n\n\n\n\n\n\nlevelplot()\nThis worked pretty well in the end. I almost think the colors are too continuous though - it’s almost easier to see the changes when you only have a few bins and it’s all coarser. I couldn’t quite figure it out with this one, but it is pretty nice otherwise.\n\nlevelplot(monthly_ms_in,\n          par.settings = myTheme,\n          layout = c(4, 3),  # 4 columns x 3 rows\n          main = \"Average Precipitation by Month\\n1991–2020\",\n          colorkey = list(title = list(\"inches\",\n                                       fontsize = 8),\n                          space = \"bottom\"),\n          margin = FALSE,\n          xlab = NULL,\n          ylab = NULL,\n          scales = list(\n              x = list(draw = FALSE),  \n              y = list(draw = FALSE)   \n          )\n) +\n    latticeExtra::layer(sp::sp.polygons(msep_sp))\n\n\n\n\n\n\n\n\n\n\ntmap\nThe tmap package lets you make both static and interactive maps (fun!). Here we set the mode to plot to be static, and then add layers in a similar way to how ggplot2 works. It was really quite simple to get here using tmap - I had a much easier time than I did with levelplot() and this will probably be my go-to in the future.\nAs with levelplot(), I would prefer a coarser binning of values, but that’s probably doable with more time. And as with most of the others, I haven’t figured out how to add a legend saying that the line in the middle of the state is the MSEP boundary. Again, I’m sure it’s possible and I just need to put more time in.\nI’d still like to tinker on smaller things too - for example, making the facet labels have a white background. I suspect that’s pretty easy, but I’m sort of at the end of my brainpower here, so this is good enough for now.\n\ntmap_mode(\"plot\")\n\n# start with the raster data and layer\ntm_shape(monthly_ms_in) +\n    tm_raster(col.scale = tm_scale_continuous(values = \"brewer.gn_bu\"),\n              col.free = FALSE,  # make the colors the same in every facet\n              col.legend = tm_legend(title = \"Inches\",\n                                     position = tm_pos_out(\"right\"))) +\n    # add the MSEP boundary\n    tm_shape(msep) +\n    tm_borders(col = \"black\", lwd = 2) +\n    # change the layout\n    tm_facets(ncol = 4, nrow = 3) +\n    tm_title(\"Average Precipitation by Month\\n1991–2020\")"
+  },
+  {
+    "objectID": "about.html#about-this-blog",
+    "href": "about.html#about-this-blog",
+    "title": "About",
+    "section": "",
+    "text": "This blog is a place where personnel with Mississippi State University’s Coastal & Marine Extension Program (CMEP) can share what we learn as we code. CMEP is housed at the Coastal Research and Extension Center in Biloxi, MS."
   }
 ]

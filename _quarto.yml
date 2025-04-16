@@ -11,6 +11,7 @@ website:
         href: https://github.com/cmep-ms
       - icon: link-45deg
         href: http://extension.msstate.edu/crec-coastal-marine-ext-program 
+    logo: cmep_logo_circle.png
 
 format:
   html:
