@@ -4,7 +4,7 @@ image: cmep_logo_circle.png
 about:
   template: jolla
   links:
-    - icon: link-45
+    - icon: link-45deg
       text: Website
       href: http://extension.msstate.edu/crec-coastal-marine-ext-program
     - icon: github
