@@ -1,0 +1,26 @@
+---
+title: "{terra}, proxy = TRUE, and learning as much as possible"
+author: "Kim Cressman"
+date: "2025-06-06"
+categories: [code, maps, learning]
+message: false
+warning: false
+draft: true
+---
+
+I've worked in the field of water quality for a long time now, and been in coastal MS for almost 15 years. My work has always focused on very specific places, and tons of background information on those places had already been compiled. I could just read the site profiles, management plans, and whatever other documents existed, and be up-to-speed on the science and conservation that was happening in the area. 
+
+Now, with the Mississippi Sound Estuary Program forming, my "specific place" has broadened. And those compiled documents do not yet exist for the Sound and its watershed. A big part of my job is going to be pulling information - and people! - together, so we can work together to make sure the Mississippi Sound is as healthy as possible, supporting the economy, recreation, and all of the good things that estuaries do.  
+
+So I am in "what information exists", "what datasets are available", "hoover it all up" mode.  
+
+Quite a lot of the things that exist are geospatial files. I was loosely familiar with the `{sf}` package before, but now I'm much more familiar; and I've been using the `{terra}` package a lot lately too.  
+
+The current thing I'm attempting to do is use the [USGS National Hydrography Dataset](https://www.usgs.gov/national-hydrography/national-hydrography-dataset) to calculate how many miles of streams and rivers there are in the MSEP watershed. The Mississippi Department of Environmental Quality says there are 86,000 miles of streams in the state (p. 4 of the [Citizen's Guide to Water Quality in the Coastal Streams Basin](https://www.mdeq.ms.gov/wp-content/uploads/2017/06/Coastal-St-Cit-Guide.pdf)). I'm sure I could reach out to their geospatial people, send them a boundary of the MSEP watershed, and ask them how many miles are in the subset. But I'm too stubborn for that - I want to be able to figure it out myself.  
+
+Step 1 is making sure I can reach that same figure of around 86,000 miles in the state as a whole. This turns out to be more complicated than I initially thought, because .... well, what even is defined as a "stream" in these files, and how do I narrow things down to what I need? I downloaded the Mississippi file from the National Hydrography Dataset as a GeoPackage file (state GeoPackage files are [here](https://prd-tnm.s3.amazonaws.com/index.html?prefix=StagedProducts/Hydrography/NHD/State/GPKG/)). There are lots of layers in here, and some of them are really big - which my little work laptop doesn't like too much.  
+
+Enter `terra::vect()` with `proxy = TRUE`. Instead of reading the whole entire data file into your memory, it just gives you the metadata, and then you can use `terra::query()` to pull out the subset(s) you actually need. After a bit of internet searching, it doesn't seem that `{sf}` has similar capability - so even though I'm more fluent in `{sf}` (and you can change `SpatVector` objects from `{terra}` to `sf` objects via `st_as_sf()`), I've been digging into `{terra}` a bit more.  
+
+Notably, in both packages, it's easy to make a dataframe of just the attributes - removing the geometry portion of the objects makes the object much, much smaller, and if you want to do some operations that don't involve the geospatial portion, you really ought to do this. In `{sf}` it's `st_drop_geometry()`; for `{terra}` it's our old friend `as.data.frame()`.
+
