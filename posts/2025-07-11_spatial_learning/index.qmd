@@ -1,0 +1,37 @@
+---
+title: "Things I've learned lately, working with spatial data in R"
+author: "Kim Cressman"
+date: "2025-07-11"
+categories: [geospatial data, learning]
+message: false
+warning: false
+draft: false
+---
+
+When I set up this blog, I really thought I was going to make a habit of making small posts about the things I was learning and doing. Turns out I *really* like explaining how I learned things, partly because reading other people's full learning journeys has helped me so much and I want to pay it forward; and I haven't really had the time to dig in on posts like that.  
+
+So this post will be a "quick" roundup of some things I've learned as I've hunted down as much geospatial data as possible in order to characterize the Mississippi Sound Watershed (how many people live in it? how many miles of rivers and streams are there? how many acres of wetlands? what's the land use/land cover? etc. etc. etc.).  
+
+The two sources (free online!) I keep going back to over and over again are:  
+
+-  [Geocomputation with R](https://r.geocompx.org/), by Robin Lovelace, Jakub Nowosad, and Jannes Muenchow  
+-  [Analyzing US Census Data: Methods, Maps, and Models in R](https://walker-data.com/census-r/index.html), by Andrew Walker. This book has SO MUCH MORE than just working with Census data - it's also been a great reference for general wrangling and map-making, especially in concert with Geocomputation with R.  
+
+Okay, in no particular order, here are some things I know now that I didn't know 3 months ago.  
+
+-   Shapefiles are going out of style. See [this website](http://switchfromshapefile.org/), which I got to from [this thoughtful description of file type options](https://r.geocompx.org/read-write.html?q=shapefiles#file-formats) in *Geocomputation with R*.  
+-  Something I do like about shapefiles though - a side effect I guess of one of the reasons they're not great, which is that each shapefile is actually multiple individual files - is that you can read in only the attributes table using `foreign::read.dbf()`. I really like doing this because another thing I've learned is that geometries take up a lot of memory, and a lot of what I'm doing with these data doesn't involve the geometries. So I much prefer only reading in the attributes.  
+-  Yeah, yeah, you can always read in the full spatial data and drop the geometry, using `sf::st_drop_geometry()` or `terra::values()` (which pulls out the data frame, so if you assigned it to a different object you have to remove the spatial object). But I'd rather not read it in in the first place.  
+-  `gc()` is wonderful. It stands for "garbage cleanup" and I've been using it after I remove the (giant) spatial objects I don't need anymore. Just running `rm()` takes the object out of your environment, but `gc()` does the rest of the cleanup and frees up memory.  
+-  `{terra}` has some great functionality for *not* reading in a whole huge file: the argument `proxy = TRUE` inside the `rast()` function. This makes R only read in metadata about the file, so you can do some poking around - using `query()` with a `sql` argument (so I've re-learned a bit of SQL too), and then once you know which rows you actually want to read in, use `query` again to only get those.  
+-  That's the main thing I like most about `{terra}` for my purposes (it's the best generally for raster files, but I mostly work with vector data). I tend to gravitate to the `{sf}` package - turns out there are equivalent ways to do all the same things to vector data in `{terra}`, but in `{sf}` all the main functions start with `st_` and I find that really useful (hooray for RStudio's autocomplete suggestions).  
+-  There doesn't seem to be an equivalent in `{sf}` to `{terra}`'s `proxy = TRUE` thing though.  
+-  The [National Hydrography Dataset](https://www.usgs.gov/national-hydrography/national-hydrography-dataset) is REALLY. BIG. But I want what's in it. (working with it is how I learned many of the things above.) That link goes to a USGS page, but the EPA also hosts data, as what they call [NHDPlus](https://www.epa.gov/waterdata/nhdplus-national-hydrography-dataset-plus).  
+-  Turns out [NHDPlus](https://www.epa.gov/waterdata/nhdplus-national-hydrography-dataset-plus) "is a suite of geospatial products that build upon and extend the capabilities of the National Hydrography Dataset, the National Elevation Dataset and the Watershed Boundary Dataset". So maybe I should be using this one more. (I did download some data from it at one point, and the files were smaller and a bit easier to work with - I just didn't know about these differences until I was typing up this post.) Okay then.  
+-  The EPA also has an [EnviroAtlas](https://www.epa.gov/enviroatlas) that has a WHOLE BUNCH of interesting data. From land use/land cover, % forested, % wetland, to wastewater flow discharges, to "area of estimated floodplain classified as land", to business address vacancy rate for 2024 - it's a treasure trove. There's also an [interactive map](https://www.epa.gov/enviroatlas/enviroatlas-interactive-map) if you'd rather just click around than actually download things.  
+
+See why I don't make more posts??? This was me trying to make a short one.
+
+Oh, one more thing - I used to think you had to use `{ggmap}` if you wanted to make maps with `{ggplot2}`, and I resisted because I didn't want to sign up for a token or whatever is required - but you don't have to. `{ggplot2}` works great with `geom_sf()`; and if you've got raster data, use `{tidyterra}` to get `geom_spatraster()`. Once I learned this I stopped stressing so much about the maps I was trying to make. Though of course `{tmap}`, `{mapview}`, and `{leaflet}` are all also awesome, so it just depends on your needs and preferred workflow.  
+
+The end .... for now.  

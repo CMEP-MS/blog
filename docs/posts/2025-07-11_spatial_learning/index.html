@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Kim Cressman">
+<meta name="dcterms.date" content="2025-07-11">
 
-<title>CMEP coding blog</title>
+<title>Things I’ve learned lately, working with spatial data in R – CMEP coding blog</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,24 +25,22 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -68,67 +68,9 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
 
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
 
-    const options = {
-      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
-
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
-
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
 <body class="nav-fixed">
@@ -138,10 +80,10 @@ window.Quarto = {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="./index.html" class="navbar-brand navbar-brand-logo">
-    <img src="./cmep_logo_circle.png" alt="" class="navbar-logo">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../cmep_logo_circle.png" alt="" class="navbar-logo">
     </a>
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">CMEP coding blog</span>
     </a>
   </div>
@@ -152,7 +94,7 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./about.html"> 
+    <a class="nav-link" href="../../about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
@@ -175,158 +117,86 @@ window.Quarto = {
 <!-- content -->
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-page-left">
-      <h1 class="title">CMEP coding blog</h1>
-                      </div>
+    <div class="quarto-title column-body">
+      <h1 class="title">Things I’ve learned lately, working with spatial data in R</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">geospatial data</div>
+                <div class="quarto-category">learning</div>
+              </div>
+                  </div>
   </div>
     
   
-  <div class="quarto-title-meta column-page-left">
+  <div class="quarto-title-meta">
 
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Kim Cressman </p>
+            </div>
+    </div>
       
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">July 11, 2025</p>
+      </div>
+    </div>
     
       
     </div>
     
   
-  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
         
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(3)</span></div><div class="category" data-category="code">code <span class="quarto-category-count">(2)</span></div><div class="category" data-category="geospatial data">geospatial data <span class="quarto-category-count">(1)</span></div><div class="category" data-category="learning">learning <span class="quarto-category-count">(3)</span></div><div class="category" data-category="maps">maps <span class="quarto-category-count">(2)</span></div></div></div>
+    </div>
 <!-- main -->
-<main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
+<main class="content quarto-banner-title-block" id="quarto-document-content">
 
 
 
 
 
+<p>When I set up this blog, I really thought I was going to make a habit of making small posts about the things I was learning and doing. Turns out I <em>really</em> like explaining how I learned things, partly because reading other people’s full learning journeys has helped me so much and I want to pay it forward; and I haven’t really had the time to dig in on posts like that.</p>
+<p>So this post will be a “quick” roundup of some things I’ve learned as I’ve hunted down as much geospatial data as possible in order to characterize the Mississippi Sound Watershed (how many people live in it? how many miles of rivers and streams are there? how many acres of wetlands? what’s the land use/land cover? etc. etc. etc.).</p>
+<p>The two sources (free online!) I keep going back to over and over again are:</p>
+<ul>
+<li><a href="https://r.geocompx.org/">Geocomputation with R</a>, by Robin Lovelace, Jakub Nowosad, and Jannes Muenchow<br>
+</li>
+<li><a href="https://walker-data.com/census-r/index.html">Analyzing US Census Data: Methods, Maps, and Models in R</a>, by Andrew Walker. This book has SO MUCH MORE than just working with Census data - it’s also been a great reference for general wrangling and map-making, especially in concert with Geocomputation with R.</li>
+</ul>
+<p>Okay, in no particular order, here are some things I know now that I didn’t know 3 months ago.</p>
+<ul>
+<li>Shapefiles are going out of style. See <a href="http://switchfromshapefile.org/">this website</a>, which I got to from <a href="https://r.geocompx.org/read-write.html?q=shapefiles#file-formats">this thoughtful description of file type options</a> in <em>Geocomputation with R</em>.<br>
+</li>
+<li>Something I do like about shapefiles though - a side effect I guess of one of the reasons they’re not great, which is that each shapefile is actually multiple individual files - is that you can read in only the attributes table using <code>foreign::read.dbf()</code>. I really like doing this because another thing I’ve learned is that geometries take up a lot of memory, and a lot of what I’m doing with these data doesn’t involve the geometries. So I much prefer only reading in the attributes.<br>
+</li>
+<li>Yeah, yeah, you can always read in the full spatial data and drop the geometry, using <code>sf::st_drop_geometry()</code> or <code>terra::values()</code> (which pulls out the data frame, so if you assigned it to a different object you have to remove the spatial object). But I’d rather not read it in in the first place.<br>
+</li>
+<li><code>gc()</code> is wonderful. It stands for “garbage cleanup” and I’ve been using it after I remove the (giant) spatial objects I don’t need anymore. Just running <code>rm()</code> takes the object out of your environment, but <code>gc()</code> does the rest of the cleanup and frees up memory.<br>
+</li>
+<li><code>{terra}</code> has some great functionality for <em>not</em> reading in a whole huge file: the argument <code>proxy = TRUE</code> inside the <code>rast()</code> function. This makes R only read in metadata about the file, so you can do some poking around - using <code>query()</code> with a <code>sql</code> argument (so I’ve re-learned a bit of SQL too), and then once you know which rows you actually want to read in, use <code>query</code> again to only get those.<br>
+</li>
+<li>That’s the main thing I like most about <code>{terra}</code> for my purposes (it’s the best generally for raster files, but I mostly work with vector data). I tend to gravitate to the <code>{sf}</code> package - turns out there are equivalent ways to do all the same things to vector data in <code>{terra}</code>, but in <code>{sf}</code> all the main functions start with <code>st_</code> and I find that really useful (hooray for RStudio’s autocomplete suggestions).<br>
+</li>
+<li>There doesn’t seem to be an equivalent in <code>{sf}</code> to <code>{terra}</code>’s <code>proxy = TRUE</code> thing though.<br>
+</li>
+<li>The <a href="https://www.usgs.gov/national-hydrography/national-hydrography-dataset">National Hydrography Dataset</a> is REALLY. BIG. But I want what’s in it. (working with it is how I learned many of the things above.) That link goes to a USGS page, but the EPA also hosts data, as what they call <a href="https://www.epa.gov/waterdata/nhdplus-national-hydrography-dataset-plus">NHDPlus</a>.<br>
+</li>
+<li>Turns out <a href="https://www.epa.gov/waterdata/nhdplus-national-hydrography-dataset-plus">NHDPlus</a> “is a suite of geospatial products that build upon and extend the capabilities of the National Hydrography Dataset, the National Elevation Dataset and the Watershed Boundary Dataset”. So maybe I should be using this one more. (I did download some data from it at one point, and the files were smaller and a bit easier to work with - I just didn’t know about these differences until I was typing up this post.) Okay then.<br>
+</li>
+<li>The EPA also has an <a href="https://www.epa.gov/enviroatlas">EnviroAtlas</a> that has a WHOLE BUNCH of interesting data. From land use/land cover, % forested, % wetland, to wastewater flow discharges, to “area of estimated floodplain classified as land”, to business address vacancy rate for 2024 - it’s a treasure trove. There’s also an <a href="https://www.epa.gov/enviroatlas/enviroatlas-interactive-map">interactive map</a> if you’d rather just click around than actually download things.</li>
+</ul>
+<p>See why I don’t make more posts??? This was me trying to make a short one.</p>
+<p>Oh, one more thing - I used to think you had to use <code>{ggmap}</code> if you wanted to make maps with <code>{ggplot2}</code>, and I resisted because I didn’t want to sign up for a token or whatever is required - but you don’t have to. <code>{ggplot2}</code> works great with <code>geom_sf()</code>; and if you’ve got raster data, use <code>{tidyterra}</code> to get <code>geom_spatraster()</code>. Once I learned this I stopped stressing so much about the maps I was trying to make. Though of course <code>{tmap}</code>, <code>{mapview}</code>, and <code>{leaflet}</code> are all also awesome, so it just depends on your needs and preferred workflow.</p>
+<p>The end …. for now.</p>
 
 
 
-
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="geospatial data,learning" data-listing-date-sort="1752210000000" data-listing-file-modified-sort="1752242167178" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="937">
-<div class="thumbnail">
-<p><a href="./posts/2025-07-11_spatial_learning/index.html" class="no-external"></a></p><a href="./posts/2025-07-11_spatial_learning/index.html" class="no-external">
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-</a><p><a href="./posts/2025-07-11_spatial_learning/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/2025-07-11_spatial_learning/index.html" class="no-external">Things I’ve learned lately, working with spatial data in R</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/2025-07-11_spatial_learning/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('geospatial data'); return false;">
-geospatial data
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('learning'); return false;">
-learning
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/2025-07-11_spatial_learning/index.html" class="no-external">When I set up this blog, I really thought I was going to make a habit of making small posts about the things I was learning and doing. Turns out I <em>really</em> like explaining how…</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/2025-07-11_spatial_learning/index.html" class="no-external">
-<div class="listing-date">
-Jul 11, 2025
-</div>
-<div class="listing-author">
-Kim Cressman
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-categories="code,maps,learning" data-listing-date-sort="1745211600000" data-listing-file-modified-sort="1745247258483" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1006">
-<div class="thumbnail">
-<p><a href="./posts/2025-04-21_map_followup/index.html" class="no-external"></a></p><a href="./posts/2025-04-21_map_followup/index.html" class="no-external">
-<p class="card-img-top"><img src="posts\2025-04-21_map_followup\index_files\figure-html\unnamed-chunk-2-1.png"  class="thumbnail-image card-img"/></p>
-</a><p><a href="./posts/2025-04-21_map_followup/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/2025-04-21_map_followup/index.html" class="no-external">Mapping follow-up</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/2025-04-21_map_followup/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('code'); return false;">
-code
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('maps'); return false;">
-maps
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('learning'); return false;">
-learning
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/2025-04-21_map_followup/index.html" class="no-external">Within 2 days of my first post here, where I struggled with maps and avoided using <code>ggplot2</code> because I thought I had to turn my raster data into data frames first (thanks…<code></code><code></code><code></code></a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/2025-04-21_map_followup/index.html" class="no-external">
-<div class="listing-date">
-Apr 21, 2025
-</div>
-<div class="listing-author">
-Kim Cressman
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="2" data-categories="code,maps,learning" data-listing-date-sort="1744693200000" data-listing-file-modified-sort="1744751873981" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="15" data-listing-word-count-sort="2932">
-<div class="thumbnail">
-<p><a href="./posts/2025-04-15 Maps/index.html" class="no-external"></a></p><a href="./posts/2025-04-15 Maps/index.html" class="no-external">
-<p class="card-img-top"><img src="posts\2025-04-15 Maps\index_files\figure-html\unnamed-chunk-7-1.png"  class="thumbnail-image card-img"/></p>
-</a><p><a href="./posts/2025-04-15 Maps/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/2025-04-15 Maps/index.html" class="no-external">Mapmaking</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/2025-04-15 Maps/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('code'); return false;">
-code
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('maps'); return false;">
-maps
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('learning'); return false;">
-learning
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/2025-04-15 Maps/index.html" class="no-external">I have been on a quest to make maps of long-term precipitation averages in the Mississippi Sound Estuary Program’s watershed. I’ve done some mapping using R, but the maps…</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/2025-04-15 Maps/index.html" class="no-external">
-<div class="listing-date">
-Apr 15, 2025
-</div>
-<div class="listing-author">
-Kim Cressman
-</div>
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
