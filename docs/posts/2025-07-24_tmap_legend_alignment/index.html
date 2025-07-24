@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Kim Cressman">
+<meta name="dcterms.date" content="2025-07-24">
 
-<title>CMEP coding blog</title>
+<title>Aligning legend items in tmap ‘view’ mode – CMEP coding blog</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,27 +22,59 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -68,67 +102,9 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
 
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
 
-    const options = {
-      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
-
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
-
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
 <body class="nav-fixed">
@@ -138,10 +114,10 @@ window.Quarto = {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="./index.html" class="navbar-brand navbar-brand-logo">
-    <img src="./cmep_logo_circle.png" alt="" class="navbar-logo">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../cmep_logo_circle.png" alt="" class="navbar-logo">
     </a>
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">CMEP coding blog</span>
     </a>
   </div>
@@ -152,7 +128,7 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./about.html"> 
+    <a class="nav-link" href="../../about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
@@ -175,197 +151,83 @@ window.Quarto = {
 <!-- content -->
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-page-left">
-      <h1 class="title">CMEP coding blog</h1>
-                      </div>
+    <div class="quarto-title column-body">
+      <h1 class="title">Aligning legend items in tmap ‘view’ mode</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">geospatial data</div>
+                <div class="quarto-category">css</div>
+                <div class="quarto-category">learning</div>
+              </div>
+                  </div>
   </div>
     
   
-  <div class="quarto-title-meta column-page-left">
+  <div class="quarto-title-meta">
 
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Kim Cressman </p>
+            </div>
+    </div>
       
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">July 24, 2025</p>
+      </div>
+    </div>
     
       
     </div>
     
   
-  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
         
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(4)</span></div><div class="category" data-category="code">code <span class="quarto-category-count">(2)</span></div><div class="category" data-category="css">css <span class="quarto-category-count">(1)</span></div><div class="category" data-category="geospatial data">geospatial data <span class="quarto-category-count">(2)</span></div><div class="category" data-category="learning">learning <span class="quarto-category-count">(4)</span></div><div class="category" data-category="maps">maps <span class="quarto-category-count">(2)</span></div></div></div>
+    </div>
 <!-- main -->
-<main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
+<main class="content quarto-banner-title-block" id="quarto-document-content">
 
 
 
 
 
+<p>I ran into an issue that was very vexing but ultimately very simple to solve. I had a hard time googling up the simple solution though, so here it is in case it can help someone else.</p>
+<p>I’ve been using <code>{tmap}</code> for a quarto book project, because I love that you can get interactive maps and static maps with the same code - the former is great for the html output, and the latter for pdf.</p>
+<p>But the map legends in the html output were uuuuugly. In RStudio’s viewer they looked fine, but in the actual output they looked like this:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="default-legend.png" class="img-fluid figure-img" alt="a map in which the items in the legend are centered, rather than left-aligned with each other" width="630"></p>
+<figcaption>default legend - items are centered</figcaption>
+</figure>
+</div>
+<p>ChatGPT tells me this is because different browsers interpret CSS code differently. It also told me that there was no way to fix this via <code>{tmap}</code> commands, which I didn’t believe at first. I couldn’t find anything related to legend item alignment online though, so I turned back to ChatGPT and eventually it helped me get to a solution - create a <code>custom.css</code> file in my root directory, point to it in the <code>_quarto.yml</code> file, and populate it with this text:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode css code-with-copy"><code class="sourceCode css"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">/* Make all child divs in the legend left-aligned */</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">.info.legend</span> <span class="op">&gt;</span> div {</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="kw">text-align</span><span class="ch">:</span> <span class="dv">left</span> <span class="at">!important</span><span class="op">;</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>And, voila!</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="better-alignment.png" class="img-fluid figure-img" alt="map output in which the legend items are left-aligned" width="629"></p>
+<figcaption>legend aligned properly!</figcaption>
+</figure>
+</div>
+<p>I don’t entirely understand what’s going on here. I do know that along the way ChatGPT had me using developer tools in my browser to try to see how the legend was identified so that we could force it via a <code>.css</code> file, and there were just divs under divs under divs (see below). The class names for the divs containing each legend were very specific to the maps, but all of them started with <code>class = "info legend"</code>, which is why the CSS code has <code>.info.legend</code> in it. So, this code takes all the divs under any general div of a class starting with <code>info legend</code> and aligns them to the left. Yay!</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="so-many-divs.png" class="img-fluid figure-img" alt="screenshot from the 'elements' pane of the browser's developer tools, which shows a div with several nested divs." width="617"></p>
+<figcaption>each legend item had its own div under the ‘info legend …’ div (highlighted). One of these child divs is expanded.</figcaption>
+</figure>
+</div>
+<p>The end.</p>
 
 
 
-
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="geospatial data,css,learning" data-listing-date-sort="1753333200000" data-listing-file-modified-sort="1753379062392" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="382">
-<div class="thumbnail">
-<p><a href="./posts/2025-07-24_tmap_legend_alignment/index.html" class="no-external"></a></p><a href="./posts/2025-07-24_tmap_legend_alignment/index.html" class="no-external">
-<p class="card-img-top"><img src="posts\2025-07-24_tmap_legend_alignment\default-legend.png" alt="a map in which the items in the legend are centered, rather than left-aligned with each other"  class="thumbnail-image card-img"/></p>
-</a><p><a href="./posts/2025-07-24_tmap_legend_alignment/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/2025-07-24_tmap_legend_alignment/index.html" class="no-external">Aligning legend items in tmap ‘view’ mode</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/2025-07-24_tmap_legend_alignment/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('geospatial data'); return false;">
-geospatial data
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('css'); return false;">
-css
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('learning'); return false;">
-learning
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/2025-07-24_tmap_legend_alignment/index.html" class="no-external">I ran into an issue that was very vexing but ultimately very simple to solve. I had a hard time googling up the simple solution though, so here it is in case it can help…</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/2025-07-24_tmap_legend_alignment/index.html" class="no-external">
-<div class="listing-date">
-Jul 24, 2025
-</div>
-<div class="listing-author">
-Kim Cressman
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-categories="geospatial data,learning" data-listing-date-sort="1752210000000" data-listing-file-modified-sort="1752244978356" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="912">
-<div class="thumbnail">
-<p><a href="./posts/2025-07-11_spatial_learning/index.html" class="no-external"></a></p><a href="./posts/2025-07-11_spatial_learning/index.html" class="no-external">
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-</a><p><a href="./posts/2025-07-11_spatial_learning/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/2025-07-11_spatial_learning/index.html" class="no-external">Things I’ve learned lately, working with spatial data in R</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/2025-07-11_spatial_learning/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('geospatial data'); return false;">
-geospatial data
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('learning'); return false;">
-learning
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/2025-07-11_spatial_learning/index.html" class="no-external">When I set up this blog, I really thought I was going to make a habit of making small posts about the things I was learning and doing. Turns out I <em>really</em> like explaining how…</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/2025-07-11_spatial_learning/index.html" class="no-external">
-<div class="listing-date">
-Jul 11, 2025
-</div>
-<div class="listing-author">
-Kim Cressman
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="2" data-categories="code,maps,learning" data-listing-date-sort="1745211600000" data-listing-file-modified-sort="1745247258483" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1006">
-<div class="thumbnail">
-<p><a href="./posts/2025-04-21_map_followup/index.html" class="no-external"></a></p><a href="./posts/2025-04-21_map_followup/index.html" class="no-external">
-<p class="card-img-top"><img src="posts\2025-04-21_map_followup\index_files\figure-html\unnamed-chunk-2-1.png"  class="thumbnail-image card-img"/></p>
-</a><p><a href="./posts/2025-04-21_map_followup/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/2025-04-21_map_followup/index.html" class="no-external">Mapping follow-up</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/2025-04-21_map_followup/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('code'); return false;">
-code
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('maps'); return false;">
-maps
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('learning'); return false;">
-learning
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/2025-04-21_map_followup/index.html" class="no-external">Within 2 days of my first post here, where I struggled with maps and avoided using <code>ggplot2</code> because I thought I had to turn my raster data into data frames first (thanks…<code></code><code></code><code></code></a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/2025-04-21_map_followup/index.html" class="no-external">
-<div class="listing-date">
-Apr 21, 2025
-</div>
-<div class="listing-author">
-Kim Cressman
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="3" data-categories="code,maps,learning" data-listing-date-sort="1744693200000" data-listing-file-modified-sort="1744751873981" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="15" data-listing-word-count-sort="2932">
-<div class="thumbnail">
-<p><a href="./posts/2025-04-15 Maps/index.html" class="no-external"></a></p><a href="./posts/2025-04-15 Maps/index.html" class="no-external">
-<p class="card-img-top"><img src="posts\2025-04-15 Maps\index_files\figure-html\unnamed-chunk-7-1.png"  class="thumbnail-image card-img"/></p>
-</a><p><a href="./posts/2025-04-15 Maps/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/2025-04-15 Maps/index.html" class="no-external">Mapmaking</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/2025-04-15 Maps/index.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('code'); return false;">
-code
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('maps'); return false;">
-maps
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('learning'); return false;">
-learning
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/2025-04-15 Maps/index.html" class="no-external">I have been on a quest to make maps of long-term precipitation averages in the Mississippi Sound Estuary Program’s watershed. I’ve done some mapping using R, but the maps…</a>
-</div>
-</div>
-<div class="metadata">
-<a href="./posts/2025-04-15 Maps/index.html" class="no-external">
-<div class="listing-date">
-Apr 15, 2025
-</div>
-<div class="listing-author">
-Kim Cressman
-</div>
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

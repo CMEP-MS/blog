@@ -1,0 +1,36 @@
+---
+title: "Aligning legend items in tmap 'view' mode"
+author: "Kim Cressman"
+date: "2025-07-24"
+categories: [geospatial data, css, learning]
+message: false
+warning: false
+draft: false
+---
+
+I ran into an issue that was very vexing but ultimately very simple to solve. I had a hard time googling up the simple solution though, so here it is in case it can help someone else.
+
+I've been using `{tmap}` for a quarto book project, because I love that you can get interactive maps and static maps with the same code - the former is great for the html output, and the latter for pdf.
+
+But the map legends in the html output were uuuuugly. In RStudio's viewer they looked fine, but in the actual output they looked like this:
+
+![default legend - items are centered](default-legend.png){fig-alt="a map in which the items in the legend are centered, rather than left-aligned with each other" width="630"}
+
+ChatGPT tells me this is because different browsers interpret CSS code differently. It also told me that there was no way to fix this via `{tmap}` commands, which I didn't believe at first. I couldn't find anything related to legend item alignment online though, so I turned back to ChatGPT and eventually it helped me get to a solution - create a `custom.css` file in my root directory, point to it in the `_quarto.yml` file, and populate it with this text:
+
+``` CSS
+/* Make all child divs in the legend left-aligned */
+.info.legend > div {
+  text-align: left !important;
+}
+```
+
+And, voila!
+
+![legend aligned properly!](better-alignment.png){fig-alt="map output in which the legend items are left-aligned" width="629"}
+
+I don't entirely understand what's going on here. I do know that along the way ChatGPT had me using developer tools in my browser to try to see how the legend was identified so that we could force it via a `.css` file, and there were just divs under divs under divs (see below). The class names for the divs containing each legend were very specific to the maps, but all of them started with `class = "info legend"`, which is why the CSS code has `.info.legend` in it. So, this code takes all the divs under any general div of a class starting with `info legend` and aligns them to the left. Yay!
+
+![each legend item had its own div under the 'info legend ...' div (highlighted). One of these child divs is expanded.](so-many-divs.png){fig-alt="screenshot from the 'elements' pane of the browser's developer tools, which shows a div with several nested divs." width="617"}
+
+The end.
