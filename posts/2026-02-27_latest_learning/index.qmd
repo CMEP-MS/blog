@@ -1,5 +1,5 @@
 ---
-title: "Things I've learned lately and helpful links"
+title: "Things I've learned lately"
 author: "Kim Cressman"
 date: "2026-02-27"
 categories: [learning, package development, package manual, pkgdown, quarto books]
@@ -8,7 +8,7 @@ warning: false
 draft: false
 ---
 
-Over the last several months, I've been working on various long-term projects for the [Mississippi Sound Estuary Program (MSEP)](https://msucoastal.com/mssoundep/). What I've been learning and doing with R has been more behind-the-scenes work than flashy, blog-post-worthy products. So I thought I'd take some time to just what I've learned from doing some of those underappreciated but super important things, and the resources that have helped me do them.  
+Over the last several months, I've been working on various long-term projects for the [Mississippi Sound Estuary Program (MSEP)](https://msucoastal.com/mssoundep/). What I've been learning and doing with R has been more behind-the-scenes work than flashy, blog-post-worthy products. So I thought I'd take some time to just share what I've learned from doing some of those underappreciated but super important things, and the resources that have helped me do them.  
 
 ## Quarto book format  
 

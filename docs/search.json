@@ -18,7 +18,7 @@
     "href": "index.html",
     "title": "CMEP coding blog",
     "section": "",
-    "text": "Things I’ve learned lately and helpful links\n\n\n\n\n\n\nlearning\n\n\npackage development\n\n\npackage manual\n\n\npkgdown\n\n\nquarto books\n\n\n\n\n\n\n\n\n\nFeb 27, 2026\n\n\nKim Cressman\n\n\n\n\n\n\n\n\n\n\n\n\nAligning legend items in tmap ‘view’ mode\n\n\n\n\n\n\ngeospatial data\n\n\ncss\n\n\nlearning\n\n\n\n\n\n\n\n\n\nJul 24, 2025\n\n\nKim Cressman\n\n\n\n\n\n\n\n\n\n\n\n\nThings I’ve learned lately, working with spatial data in R\n\n\n\n\n\n\ngeospatial data\n\n\nlearning\n\n\n\n\n\n\n\n\n\nJul 11, 2025\n\n\nKim Cressman\n\n\n\n\n\n\n\n\n\n\n\n\nMapping follow-up\n\n\n\n\n\n\ncode\n\n\nmaps\n\n\nlearning\n\n\n\n\n\n\n\n\n\nApr 21, 2025\n\n\nKim Cressman\n\n\n\n\n\n\n\n\n\n\n\n\nMapmaking\n\n\n\n\n\n\ncode\n\n\nmaps\n\n\nlearning\n\n\n\n\n\n\n\n\n\nApr 15, 2025\n\n\nKim Cressman\n\n\n\n\n\n\nNo matching items"
+    "text": "Things I’ve learned lately\n\n\n\n\n\n\nlearning\n\n\npackage development\n\n\npackage manual\n\n\npkgdown\n\n\nquarto books\n\n\n\n\n\n\n\n\n\nFeb 27, 2026\n\n\nKim Cressman\n\n\n\n\n\n\n\n\n\n\n\n\nAligning legend items in tmap ‘view’ mode\n\n\n\n\n\n\ngeospatial data\n\n\ncss\n\n\nlearning\n\n\n\n\n\n\n\n\n\nJul 24, 2025\n\n\nKim Cressman\n\n\n\n\n\n\n\n\n\n\n\n\nThings I’ve learned lately, working with spatial data in R\n\n\n\n\n\n\ngeospatial data\n\n\nlearning\n\n\n\n\n\n\n\n\n\nJul 11, 2025\n\n\nKim Cressman\n\n\n\n\n\n\n\n\n\n\n\n\nMapping follow-up\n\n\n\n\n\n\ncode\n\n\nmaps\n\n\nlearning\n\n\n\n\n\n\n\n\n\nApr 21, 2025\n\n\nKim Cressman\n\n\n\n\n\n\n\n\n\n\n\n\nMapmaking\n\n\n\n\n\n\ncode\n\n\nmaps\n\n\nlearning\n\n\n\n\n\n\n\n\n\nApr 15, 2025\n\n\nKim Cressman\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "about.html",
@@ -107,14 +107,14 @@
   {
     "objectID": "posts/2026-02-27_latest_learning/index.html",
     "href": "posts/2026-02-27_latest_learning/index.html",
-    "title": "Things I’ve learned lately and helpful links",
+    "title": "Things I’ve learned lately",
     "section": "",
-    "text": "Over the last several months, I’ve been working on various long-term projects for the Mississippi Sound Estuary Program (MSEP). What I’ve been learning and doing with R has been more behind-the-scenes work than flashy, blog-post-worthy products. So I thought I’d take some time to just what I’ve learned from doing some of those underappreciated but super important things, and the resources that have helped me do them."
+    "text": "Over the last several months, I’ve been working on various long-term projects for the Mississippi Sound Estuary Program (MSEP). What I’ve been learning and doing with R has been more behind-the-scenes work than flashy, blog-post-worthy products. So I thought I’d take some time to just share what I’ve learned from doing some of those underappreciated but super important things, and the resources that have helped me do them."
   },
   {
     "objectID": "posts/2026-02-27_latest_learning/index.html#quarto-book-format",
     "href": "posts/2026-02-27_latest_learning/index.html#quarto-book-format",
-    "title": "Things I’ve learned lately and helpful links",
+    "title": "Things I’ve learned lately",
     "section": "Quarto book format",
     "text": "Quarto book format\nI have really become a fan of Quarto books for any complex or multi-faceted analyses/projects. The online version of a book can be browsed like a website, so you don’t have to worry about everything being in exactly the perfect order. But you can also produce a .pdf or other static format if the output is eventually meant to be a report (or if you have some group members that just prefer pdfs, or just want to look through outputs without being online).\nFor the Estuary Program, I’ve been using the Quarto book format to compile information characterizing the Mississippi Sound watershed. That is very much a living document - it’s still fairly incomplete and has lots of placeholders (“Write something about [topic] here!”). The book format though allows me to work on one piece at a time, share compiled information as I have it (e.g., if one of my coworkers wants to know “how many miles of streams are in the entire watershed?” - maybe for a ‘fun fact’ social media post - I can point them to the relevant section), and show the outline of where I want to go with the overall project. And all of that being in one place is a great thing to point MSEP stakeholders to when discussing what we want future reports to look like. What do you see here that works? What’s missing? Things like that. Love it, love it, love it."
   },
@@ -135,21 +135,21 @@
   {
     "objectID": "posts/2026-02-27_latest_learning/index.html#summary",
     "href": "posts/2026-02-27_latest_learning/index.html#summary",
-    "title": "Things I’ve learned lately and helpful links",
+    "title": "Things I’ve learned lately",
     "section": "Summary",
     "text": "Summary\nI’ll end it here. The key magically useful things I’ve learned about and discussed above include:\n\nThe utility of Quarto books\n\ndevtools::build_manual()\n\n{pkgdown}\n\nusethis::use_pkgdown_github_pages()\n\nusethis::use_roxygen_md()\n\nroxygen2md::roxygen2md()\n\nHappy learning and coding, everyone!"
   },
   {
     "objectID": "posts/2026-02-27_latest_learning/index.html#package-development",
     "href": "posts/2026-02-27_latest_learning/index.html#package-development",
-    "title": "Things I’ve learned lately and helpful links",
+    "title": "Things I’ve learned lately",
     "section": "Package development",
     "text": "Package development\nSince I’ve been at the MSEP, I’ve really started to understand why people on social media talk so much about the value of R packages, even if you’re only writing them for yourself and your own workflow. I suspect as the work of the MSEP expands, the packages I’m building will become useful to other people too. But for now, it’s worth it even if it is just me.\nI’ve been especially interested in making it easier on myself to pull data for the specific areas I care about (within the Mississippi Sound and its watershed) from APIs and get all the details just as I want them. So I’ve made some wrapper functions for functions from the excellent {dataRetrieval} package, made some additional plotting and mapping functions, and put them into a package called {mseptools}. I shamelessly mimicked the name of the Tampa Bay Estuary Program’s package, {tbeptools}.\nThe other big thing that was screaming for a package was spatial information. The MSEP only works within the state of Mississippi, but the watershed we care about extends into the neighboring states of Alabama and Louisiana. Depending on what we’re doing (or what information I’m trying to compile), we may want to use different spatial boundaries. I’m NOT a GIS person; I am very much an R person, and I don’t want to have to worry about where all the shapefiles are and how to deal with them every time. So I made some different versions of watershed and subbasin outlines and threw them into a package, which I named {msepBoundaries}. Sometimes other people want various versions of the boundaries; I’ve exported them as shapefiles and they live on a shared drive here. And I generated a sort of table of contents for my coworkers by using devtools::build_manual() to generate a pdf of the entire package manual. Didn’t know that was possible until I went looking for it."
   },
   {
     "objectID": "posts/2026-02-27_latest_learning/index.html#package-websites",
     "href": "posts/2026-02-27_latest_learning/index.html#package-websites",
-    "title": "Things I’ve learned lately and helpful links",
+    "title": "Things I’ve learned lately",
     "section": "Package websites",
     "text": "Package websites\nEven better than a full pdf manual, I just made a {pkgdown} site for {msepBoundaries} (linked above). Making a site is SO AMAZINGLY EASY with usethis::use_pkgdown_github_pages()! I just learned it yesterday, making one for {mseptools}. Back to {msepBoundaries} though, I wrote an article where I put each version of the boundary on a map, so everyone (including me!) can see what the differences are, in addition to just reading my descriptions in the documentation.\nAfter creating the {pkgdown} site for {mseptools} yesterday, I noticed that certain pieces of the documentation - code in particular - weren’t showing up right, even though I’d used markdown syntax. So I started changing things from backticks to the \\code{function} format, which was terribly annoying and didn’t seem like something that would be commonly required. Maybe it used to be, but in looking through R Packages 2nd edition, they kept using markdown syntax and I eventually stumbled onto something. The DESCRIPTION file for a package needs certain information in it so that roxygen2 recognizes your markdown. Scroll up just a little bit here for the explanation. This was the magical footnote that introduced me to usethis::use_roxygen_md() to add the necessary info to the DESCRIPTION file. And that output led me to roxygen2md::roxygen2md(), which turned all the syntax I’d changed away from markdown back into markdown (phew!).\n{usethis} has more functionality than I knew - almost every time I run into something, the solution comes from that package. Brilliant. I really appreciate it when people take things that were hard for them and make those things easier for other people."
   }
