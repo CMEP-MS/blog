@@ -1,1 +1,27 @@
 /* css styles */
+
+/* Title text */
+.quarto-title-banner .quarto-title .title {
+    color: #005c76;            /* main title color */
+}
+
+/* Meta headings (Author, Published) */
+.quarto-title-meta-heading {
+    font-weight: bold;
+    color: #004a5f;             /* heading color */
+}
+
+/* 1) Change navbar background */
+/* /* .navbar {
+    background-color: #BDD6E6; /* light-blue from your palette */
+/* }
+
+/* 2) Change navbar links color (excluding brand/title) */
+.navbar a.nav-link {
+    color: #004a5f;  /* ; a shade of the MSU dark teal */
+}
+
+/* 3) Change navbar brand/title color */
+.navbar-brand {
+    color: #004a5f; 
+}

@@ -1,0 +1,37 @@
+meta:
+  name: 
+    full: Coastal and Marine Extension Program
+    short: CMEP
+  link: 
+    home: https://extension.msstate.edu/crec-coastal-marine-ext-program
+    github: https://github.com/CMEP-MS
+    blog: https://cmep-ms.github.io/blog/
+    
+
+color:
+  palette:
+    maroon: "#5D1725"
+    light-grey: "#C1C6C8"
+    dark-grey: "#777777"
+    red-orange: "#A9431E"
+    light-blue: "#BDD6E6"
+    eggplant: "#642F6C"
+    teal: "#00A3AD"
+    dark-teal: "#007FA3"
+    orange-gold: "#FFB81C"
+    beige: "#DAC79D"
+    grey-brown: "#A69F88"
+    brown: "#6E4C1E"
+    gold-brown: "#C99700"
+    yellow-green: "#B7BF10"
+    olive: "#8F993E"
+
+typography:
+  headings:
+    weight: bold
+    color: dark-teal
+  monospace-inline:
+    color: eggplant
+  link: 
+    color: red-orange
+    
