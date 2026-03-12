@@ -3,6 +3,7 @@ project:
   output-dir: docs
 
 website:
+  google-analytics: "G-X30W97QBGW"
   title: "CMEP coding blog"
   navbar:
     right:
