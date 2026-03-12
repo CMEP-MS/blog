@@ -1,0 +1,75 @@
+/*-- scss:defaults --*/
+
+/* NAVBAR COLORS (Bootstrap variables) */
+
+$navbar-bg: #edf4f8;  // tint of the MSU light-blue
+
+
+/*-- scss:rules --*/
+
+
+
+/* GENERAL */
+
+
+/* Title Banner Background */
+.quarto-title-banner {
+  background-color: #edf4f8;   
+}
+
+
+/* Blog and Post titles */
+.quarto-title-banner .quarto-title .title {
+  color: #005c76;  
+}
+
+
+/* Navbar links color (excluding brand/title) */
+.navbar a.nav-link {
+    color: #004a5f;  /* ; a shade of the MSU dark teal */
+}
+
+/* Navbar brand/title color */
+.navbar-brand {
+    color: #004a5f; 
+}
+
+
+/* INDEX PAGE STUFF */
+
+/* Post (listing) titles */
+.quarto-listing .listing-title a {
+    font-weight: 600;
+    color: #642F6C;
+}
+
+.quarto-listing .listing-title a:hover {
+  color: darken(#642F6C, 10%);
+  text-decoration: underline;
+}
+
+/* Post (listing) metadata - author and date */
+.quarto-listing .metadata a {
+    color: #4f2657;  
+}
+
+/* Post (listing) category buttons */
+.quarto-listing .listing-category {
+  background-color: white;
+  color: #004a5f !important;  // have to override quarto's theme with !important
+  font-weight: 500;
+}
+
+
+/* POST PAGES */
+
+/* Post Metadata (author and date) */
+.quarto-title-meta-heading {
+  font-weight: bold;
+  color: #004a5f;  // author and published on each post
+}
+
+.quarto-category {
+  background-color: white;
+  color: #4f2657 !important;  // darker eggplant
+}
