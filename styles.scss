@@ -73,3 +73,11 @@ $navbar-bg: #edf4f8;  // tint of the MSU light-blue
   background-color: white;
   color: #4f2657 !important;  // darker eggplant
 }
+
+
+/* ABOUT PAGE */
+
+/* Link buttons - match the .listing-category buttons above */
+.about-links .about-link {
+  color: #004a5f !important;  // have to override quarto's theme with !important
+}
